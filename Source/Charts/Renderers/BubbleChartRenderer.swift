@@ -315,7 +315,7 @@ open class BubbleChartRenderer: BarLineScatterCandleBubbleRenderer
                 height: shapeSize)
             
             context.setLineWidth(dataSet.highlightCircleWidth)
-            context.setStrokeColor(color.cgColor)
+            context.setStrokeColor(dataSet.highlightColor.cgColor)
             context.strokeEllipse(in: rect)
             
             high.setDraw(x: _pointBuffer.x, y: _pointBuffer.y)
