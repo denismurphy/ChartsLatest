@@ -357,7 +357,7 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
         
         let frame = self.bounds
 
-        if _data === nil && noDataText.characters.count > 0
+        if _data === nil && !noDataText.isEmpty
         {
             context.saveGState()
             defer { context.restoreGState() }
@@ -391,7 +391,7 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
             let description = chartDescription,
             description.isEnabled,
             let descriptionText = description.text,
-            descriptionText.characters.count > 0
+            !descriptionText.isEmpty
             else { return }
         
         var position = description.position
@@ -928,7 +928,7 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
     
     @objc open func removeViewportJob(_ job: ViewPortJob)
     {
-        if let index = _viewportJobs.index(where: { $0 === job })
+        if let index = _viewportJobs.firstIndex(where: { $0 === job })
         {
             _viewportJobs.remove(at: index)
         }
